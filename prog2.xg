@@ -1,0 +1,16 @@
+TitleText: PING
+XUnitText: Bandwidth
+YUnitText: No of packet drop
+
+"PING"
+0.01 3122
+0.025 3108
+0.05 3069
+0.075 2294
+0.1 2076
+0.125 1412
+0.15 997
+0.175 476
+0.2 69
+
+

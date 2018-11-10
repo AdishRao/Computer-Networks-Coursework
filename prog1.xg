@@ -1,0 +1,12 @@
+TitleText: Performance Analysis
+XUnitText: Bandwidth
+YUnitText: No of packet drop
+
+"CBR"
+1.25 102
+1.00 65
+0.90 182
+0.80 382
+0.70 582
+0.60 782
+0.50 982
