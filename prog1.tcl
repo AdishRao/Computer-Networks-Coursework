@@ -16,18 +16,10 @@ proc finish {} {
 set n0 [$ns node]
 set n1 [$ns node]
 set n2 [$ns node]
-#label them
-$n0 label "TCP"
-$n1 label "UDP"
-$n2 label "DEST"
-$ns color 1 "Red"
-$ns color 2 "Green"
-#set 2 links and limit
+#1 10 | 1 20
 $ns duplex-link $n0 $n1 1.00Mb 10ms DropTail
-$ns duplex-link $n1 $n2 1.00Mb 20ms DropTail
+$ns duplex-link $n1 $n2 1.00Mb 20ms DropTail 
 $ns queue-limit $n1 $n2 20
-$ns duplex-link-op $n0 $n1 orient right
-$ns duplex-link-op $n1 $n2 orient down
 
 set tcp0 [new Agent/TCP]
 $ns attach-agent $n0 $tcp0
@@ -49,9 +41,6 @@ $ns attach-agent $n2 $null3
 
 $ns connect $udp1 $null3
 
-$tcp0 set class_ 1
-$udp1 set class_ 2
-
 #maxPkts_
 $ftp0 set maxPkts_ 1000
 #packetSize_ interval_
@@ -64,20 +53,3 @@ $ns at 4.0 "$cbr1 stop"
 $ns at 4.5 "$ftp0 stop"
 $ns at 5.0 "finish"
 $ns run
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

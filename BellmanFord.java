@@ -1,8 +1,7 @@
 import java.util.*;
-import java.io.*;
 
 class BellmanFord {
-  int i, j, n;
+  int n;
   int d[];
   int A[][];
   int max = 999;
@@ -22,8 +21,9 @@ class BellmanFord {
       for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
           if (A[i][j] != max) {
-            if (d[j] > d[i] + A[i][j])
+            if (d[j] > d[i] + A[i][j]) {
               d[j] = d[i] + A[i][j]; // j is current node and i is parent node
+            }
           }
         }
       }
@@ -44,7 +44,6 @@ class BellmanFord {
 
   public static void main(String args[]) {
     Scanner sc = new Scanner(System.in);
-    int s;
     System.out.println("Enter number of verticies");
     int n = sc.nextInt();
     BellmanFord b = new BellmanFord(n);
@@ -53,7 +52,8 @@ class BellmanFord {
       for (int j = 1; j <= n; j++)
         b.A[i][j] = sc.nextInt();
     System.out.println("Enter Source");
-    s = sc.nextInt();
+    int s = sc.nextInt();
     b.shortest(s);
+    sc.close();
   }
 }

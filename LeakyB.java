@@ -4,7 +4,7 @@ class LeakyB {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random r = new Random();
-        int opr, bs, dprpkt = 0, datainbs = 0, sent;
+        int opr, bs, dprpkt = 0, datainbs = 0, sent; // 5 var
         int[] ps = new int[15];
         for (int i = 0; i < 15; i++) {
             ps[i] = r.nextInt(8) + 1;
@@ -14,7 +14,7 @@ class LeakyB {
         }
         System.out.println("\nEnter Output Rate");
         opr = sc.nextInt();
-        System.out.println("Enter Buffer Size");
+        System.out.println("Enter Bucket Size");
         bs = sc.nextInt();
         int i = 0;
         System.out.println("Time\tPkt Rcv\tPkt in Buff\tPkt Trans\tPkt Dropped");
@@ -34,8 +34,7 @@ class LeakyB {
             System.out.print(sent + "\t\t");
             System.out.print(dprpkt + "\n");
             i++;
-
         }
-
+        sc.close();
     }
 }

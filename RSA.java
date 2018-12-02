@@ -1,5 +1,6 @@
-import java.io.DataInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.Random;
 
@@ -33,10 +34,9 @@ public class RSA {
 
     public static void main(String[] args) throws IOException {
         RSA rsa = new RSA();
-        DataInputStream in = new DataInputStream(System.in);
-        String teststring;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter the plain text:");
-        teststring = in.readLine();
+        String teststring = br.readLine();
         System.out.println("Encrypting String: " + teststring);
         System.out.println("String in Bytes: " + bytesToString(teststring.getBytes()));
         // encrypt
@@ -46,7 +46,6 @@ public class RSA {
         byte[] decrypted = rsa.decrypt(encrypted);
         System.out.println("Decrypting Bytes: " + bytesToString(decrypted));
         System.out.println("Decrypted String: " + new String(decrypted));
-        System.out.println("****************************************");
     }
 
     private static String bytesToString(byte[] encrypted) {
